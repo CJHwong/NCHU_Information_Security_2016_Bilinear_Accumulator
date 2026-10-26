@@ -1,19 +1,18 @@
-Environment:
-Debian Jessie
-GCC 4.9
+Run `make` after checkout to build the bundled PBC library and run both examples.
+
+Dependencies:
+
+ * flex
+ * bison
+ * automake
+ * libtool
+ * autoconf
+ * libgmp-dev
 
 
-Installation and Requirements::
-$ sudo apt install flex bison libgmp-dev
-$ cd pbc
-$ ./configure --prefix=$HOME/.local
-$ make
-$ make install
+On macOS with Homebrew GMP, run:
 
+    CPPFLAGS="-I$(brew --prefix gmp)/include" LDFLAGS="-L$(brew --prefix gmp)/lib" make
 
-Execution:
--Compile and run myprog.c
-./run.sh myprog
-
--Compile and run example program
-./run.sh
+The Makefile passes CPPFLAGS, CFLAGS, and LDFLAGS to the compiler.
+If configuration fails, fix the dependency paths and run make again.

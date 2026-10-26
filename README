@@ -1,4 +1,4 @@
-To run, type `make` after checkout out source code
+Run `make` after checkout to build the bundled PBC library and run both examples.
 
 Dependencies:
 
@@ -9,3 +9,10 @@ Dependencies:
  * autoconf
  * libgmp-dev
 
+
+On macOS with Homebrew GMP, run:
+
+    CPPFLAGS="-I$(brew --prefix gmp)/include" LDFLAGS="-L$(brew --prefix gmp)/lib" make
+
+The Makefile passes CPPFLAGS, CFLAGS, and LDFLAGS to the compiler.
+If configuration fails, fix the dependency paths and run make again.
